@@ -1,3 +1,4 @@
+// src/screens/psicologo/HomePsicologo.js
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons, MaterialCommunityIcons, FontAwesome5, Entypo } from '@expo/vector-icons';
@@ -9,54 +10,114 @@ export default function HomePsicologo() {
 
   return (
     <View style={styles.container}>
+      {/* Header com gradient */}
       <LinearGradient colors={['#f43f5e', '#f43f5e']} style={styles.header}>
         <View style={styles.headerTop}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Ionicons name="chevron-back" size={28} color="white" />
           </TouchableOpacity>
-          <Image source={require('../../assets/logo-onterapia.png')} style={styles.logo} />
+          <Image
+            source={require('../../assets/logo-onterapia.png')}
+            style={styles.logo}
+          />
           <Ionicons name="notifications" size={24} color="white" />
         </View>
         <Text style={styles.title}>Olá!</Text>
         <Text style={styles.subtitle}>Pronto para a sessão?</Text>
       </LinearGradient>
 
+      {/* Cards principais */}
       <View style={styles.cardContainer}>
-      <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Pacientes')}>
-        <Ionicons name="people-circle-outline" size={28} color="#477BDE" />
-        <Text style={styles.cardText}>Pacientes</Text>
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('Pacientes')}
+        >
+          <Ionicons name="people-circle-outline" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Pacientes</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Prontuarios')}>
-        <MaterialCommunityIcons name="notebook-outline" size={28} color="#477BDE" />
-        <Text style={styles.cardText}>Prontuários</Text>
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('Prontuarios')}
+        >
+          <MaterialCommunityIcons name="notebook-outline" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Prontuários</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('EvolucaoCasos')}>
-        <FontAwesome5 name="chart-line" size={28} color="#477BDE" />
-        <Text style={styles.cardText}>Evolução de Casos</Text>
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('EvolucaoCasos')}
+        >
+          <FontAwesome5 name="chart-line" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Evolução de Casos</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('IniciarSessao')}>
-        <Ionicons name="videocam-outline" size={28} color="#477BDE" />
-        <Text style={styles.cardText}>Iniciar Sessão</Text>
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('IniciarSessao')}
+        >
+          <Ionicons name="videocam-outline" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Iniciar Sessão</Text>
         </TouchableOpacity>
 
+        {/* Novos cards para RoleSelect, LinkScreen e VideoCall */}
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() => navigation.navigate('RoleSelect')}
+        >
+          <FontAwesome5 name="user-tag" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Escolher Papel</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() =>
+            navigation.navigate('LinkScreen', {
+              role: 'Psicólogo',
+              roomName: 'SalaDeTeste',
+            })
+          }
+        >
+          <MaterialCommunityIcons name="link-variant" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Link da Sala</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() =>
+            navigation.navigate('VideoCall', {
+              role: 'Psicólogo',
+              roomName: 'SalaDeTeste',
+            })
+          }
+        >
+          <Ionicons name="videocam-outline" size={28} color="#477BDE" />
+          <Text style={styles.cardText}>Chamada de Vídeo</Text>
+        </TouchableOpacity>
       </View>
 
+      {/* Próxima sessão */}
       <View style={styles.sessionContainer}>
         <Text style={styles.sessionTitle}>Próxima sessão</Text>
         <View style={styles.sessionCard}>
-          <Image source={{ uri: 'https://i.imgur.com/UYiroysl.jpg' }} style={styles.sessionImage} />
+          <Image
+            source={{ uri: 'https://i.imgur.com/UYiroysl.jpg' }}
+            style={styles.sessionImage}
+          />
           <View style={styles.sessionInfo}>
-            <Text style={styles.sessionName}>Paciente </Text>
+            <Text style={styles.sessionName}>Paciente</Text>
             <View style={styles.sessionTags}>
               <Entypo name="calendar" size={14} color="white" />
               <Text style={styles.sessionText}> 24 de Abril  •  15:00</Text>
             </View>
             <Text style={styles.sessionStars}>⭐ 5.0</Text>
           </View>
-          <Ionicons name="chevron-forward" size={24} color="white" style={{ marginLeft: 'auto' }} />
+          <Ionicons
+            name="chevron-forward"
+            size={24}
+            color="white"
+            style={{ marginLeft: 'auto' }}
+          />
         </View>
       </View>
     </View>
@@ -127,6 +188,7 @@ const styles = StyleSheet.create({
   },
   sessionContainer: {
     marginHorizontal: 20,
+    marginTop: 10,
   },
   sessionTitle: {
     fontSize: 18,

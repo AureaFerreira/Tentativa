@@ -1,13 +1,13 @@
+// Exemplo básico do componente
 import React from 'react';
-import JitsiConference from './JitsiConference';
+import { View, Text } from 'react-native';
 
-const App = () => {
+const IniciarSessao = () => {
   return (
-    <div>
-      <h1>Minha Videoconferência com Jitsi</h1>
-      <JitsiConference />
-    </div>
+    <View>
+      <Text>Tela Iniciar Sessão</Text>
+    </View>
   );
 };
 
-export default App;
+export default IniciarSessao;

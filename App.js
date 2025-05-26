@@ -1,13 +1,14 @@
+// App.js
 import React from 'react';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import RootNavigation from './navigation';
+import RootNavigation from './navigation';  // apontando para a pasta navigation/
 
 const getFonts = () =>
   Font.loadAsync({
-    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
-    'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
-    'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Regular':   require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-SemiBold':  require('./assets/fonts/Poppins-SemiBold.ttf'),
+    'Poppins-Bold':      require('./assets/fonts/Poppins-Bold.ttf'),
   });
 
 export default function App() {
